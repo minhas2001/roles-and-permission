@@ -1,5 +1,4 @@
-@extends('backend.layout.app')
-@section('main')
+
 
     <div class="pagetitle">
         <h1>Superadmin Dashboard</h1>
@@ -593,6 +592,3 @@
         </div>
     </section>
 
-
-
-@endsection
