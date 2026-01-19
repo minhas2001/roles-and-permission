@@ -28,7 +28,7 @@
 
                             </div>
                         </div>
-                    <!-- Default Table -->
+                        <!-- Default Table -->
                         <table class="table">
                             <thead>
                             <tr>
@@ -81,8 +81,8 @@
                     </div>
                 </div>
 
-                    </div>
-                </div>
+            </div>
+        </div>
 
     </section>
 @endsection
