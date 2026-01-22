@@ -1,24 +1,24 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Backend;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class AboutController extends Controller
+class DashboardController extends Controller
 {
     public function index()
     {
-        return view('backend.about.index');
+        return view('backend.dashboard.dashboard');
+
     }
 
     public function create()
     {
-        return view('backend.about.create');
     }
 
     public function store(Request $request)
     {
-
     }
 
     public function show($id)

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HeroController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -9,13 +10,10 @@ Route::get('/dashboard', function () {
     return view('backend.dashboard.dashboard');
 })->name('dashboard');
 
-Route::get('/', function () {
-    return view('frontend.website');
-})->name('website');
-
+Route::get('/', [\App\Http\Controllers\FrontendController::class, 'index'])->name('website');
 
 Route::resources([
-    'abouts' => \App\Http\Controllers\AboutController::class,
+'heroes' => HeroController::class,
 ]);
 
 Auth::routes();

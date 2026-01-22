@@ -10,7 +10,7 @@
                         <img src="{{asset('frontend/assets/img/product/product-f-2.webp')}}" alt="Women's Collection" class="img-fluid">
                     </div>
                     <div class="category-content">
-                        <span class="category-tag">Trending Now</span>
+                        <span class="category-tag">Trending Collections</span>
                         <h2>New Summer Collection</h2>
                         <p>Discover our latest arrivals designed for the modern lifestyle. Elegant, comfortable, and
                             sustainable fashion for every occasion.</p>

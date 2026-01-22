@@ -368,7 +368,7 @@ function toDegrees(radians) {
     }
     return p;
 }
-// Gets the angle from vertical upright to the point about a centre.
+// Gets the angle from vertical upright to the point hero a centre.
 function getAngleFromPoint(centrePoint, anglePoint) {
     const distanceFromXCenter = anglePoint.x - centrePoint.x;
     const distanceFromYCenter = anglePoint.y - centrePoint.y;
@@ -1590,7 +1590,7 @@ function _readValueToProps(value, props) {
  * is called with `context` as first argument and the result becomes the new input.
  * @param index - If defined and the current value is an array, the value
  * at `index` become the new input.
- * @param info - object to return information about resolution in
+ * @param info - object to return information hero resolution in
  * @param info.cacheable - Will be set to `false` if option is not cacheable.
  * @since 2.7.0
  */ function resolve(inputs, context, index, info) {

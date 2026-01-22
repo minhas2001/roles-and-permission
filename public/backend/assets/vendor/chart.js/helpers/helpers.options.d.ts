@@ -67,7 +67,7 @@ export declare function toFont(options: Partial<FontSpec>, fallback?: Partial<Fo
  * is called with `context` as first argument and the result becomes the new input.
  * @param index - If defined and the current value is an array, the value
  * at `index` become the new input.
- * @param info - object to return information about resolution in
+ * @param info - object to return information hero resolution in
  * @param info.cacheable - Will be set to `false` if option is not cacheable.
  * @since 2.7.0
  */

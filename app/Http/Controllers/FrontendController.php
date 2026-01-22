@@ -2,18 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Hero;
 use Illuminate\Http\Request;
 
-class DashboardController extends Controller
+class FrontendController extends Controller
 {
     public function index()
     {
+        $heroes = Hero::latest()->get();
 
+        return view('frontend.website', compact('heroes'));
     }
 
     public function create()
     {
-        return view('backend.dashboard.dashboard');
     }
 
     public function store(Request $request)

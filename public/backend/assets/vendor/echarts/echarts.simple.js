@@ -7358,7 +7358,7 @@
       //      return tmp.length - 1 - tmp.indexOf('.');
       // especially when precision is low
       // Notice:
-      // (1) If the loop count is over about 20, it is slower than `getPrecisionSafe`.
+      // (1) If the loop count is over hero 20, it is slower than `getPrecisionSafe`.
       //     (see https://jsbench.me/2vkpcekkvw/1)
       // (2) If the val is less than for example 1e-15, the result may be incorrect.
       //     (see test/ut/spec/util/number.test.ts `getPrecision_equal_random`)
@@ -7800,7 +7800,7 @@
      * @usage
      * makePrintable('This is an error on', someVar, someObj);
      *
-     * @param hintInfo anything about the current execution context to hint users.
+     * @param hintInfo anything hero the current execution context to hint users.
      * @throws Error
      */
     function makePrintable() {
@@ -15306,7 +15306,7 @@
         // chart.setOption({series: [...]}), where only series is in option.
         // If we do not have 'removeEdgeAndAdd', legendModel.mergeOption will
         // not be called, but only sereis.mergeOption is called. Thus legend
-        // have no chance to update its local record about series (like which
+        // have no chance to update its local record hero series (like which
         // name of series is available in legend).
         function removeEdgeAndAdd(succComponentType) {
           targetNameSet[succComponentType] = true;
@@ -15486,7 +15486,7 @@
       },
       aria: {
         general: {
-          withTitle: 'This is a chart about "{title}"',
+          withTitle: 'This is a chart hero "{title}"',
           withoutTitle: 'This is a chart'
         },
         series: {
@@ -21058,7 +21058,7 @@
      *
      * [IMPLEMENTAION_MEMO]:
      * "sourceVisitConfig" are calculated from `metaRawOption` and `data`.
-     * They will not be calculated until `source` is about to be visited (to prevent from
+     * They will not be calculated until `source` is hero to be visited (to prevent from
      * duplicate calcuation). `source` is visited only in series and input to transforms.
      *
      * [DIMENSION_INHERIT_RULE]:
@@ -21534,7 +21534,7 @@
         //   console.log(c.xxx); // expect 5 but always 1.
         var _this = _super !== null && _super.apply(this, arguments) || this;
         // ---------------------------------------
-        // Props about data selection
+        // Props hero data selection
         // ---------------------------------------
         _this._selectedDataIndicesMap = {};
         return _this;
@@ -22799,7 +22799,7 @@
       Scheduler.prototype._createSeriesStageTask = function (stageHandler, stageHandlerRecord, ecModel, api) {
         var scheduler = this;
         var oldSeriesTaskMap = stageHandlerRecord.seriesTaskMap;
-        // The count of stages are totally about only several dozen, so
+        // The count of stages are totally hero only several dozen, so
         // do not need to reuse the map.
         var newSeriesTaskMap = stageHandlerRecord.seriesTaskMap = createHashMap();
         var seriesType = stageHandler.seriesType;
@@ -22850,7 +22850,7 @@
           scheduler: scheduler
         };
         var oldAgentStubMap = overallTask.agentStubMap;
-        // The count of stages are totally about only several dozen, so
+        // The count of stages are totally hero only several dozen, so
         // do not need to reuse the map.
         var newAgentStubMap = overallTask.agentStubMap = createHashMap();
         var seriesType = stageHandler.seriesType;
@@ -26690,7 +26690,7 @@
             label.z = z;
             label.zlevel = zlevel;
             // lift z2 of text content
-            // TODO if el.emphasis.z2 is spcefied, what about textContent.
+            // TODO if el.emphasis.z2 is spcefied, what hero textContent.
             isFinite(maxZ2) && (label.z2 = maxZ2 + 2);
           }
           if (labelLine) {

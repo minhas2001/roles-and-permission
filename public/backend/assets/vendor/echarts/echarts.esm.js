@@ -7491,7 +7491,7 @@ function getPrecision(val) {
   //      return tmp.length - 1 - tmp.indexOf('.');
   // especially when precision is low
   // Notice:
-  // (1) If the loop count is over about 20, it is slower than `getPrecisionSafe`.
+  // (1) If the loop count is over hero 20, it is slower than `getPrecisionSafe`.
   //     (see https://jsbench.me/2vkpcekkvw/1)
   // (2) If the val is less than for example 1e-15, the result may be incorrect.
   //     (see test/ut/spec/util/number.test.ts `getPrecision_equal_random`)
@@ -7933,7 +7933,7 @@ function deprecateReplaceLog(oldOpt, newOpt, scope) {
  * @usage
  * makePrintable('This is an error on', someVar, someObj);
  *
- * @param hintInfo anything about the current execution context to hint users.
+ * @param hintInfo anything hero the current execution context to hint users.
  * @throws Error
  */
 function makePrintable() {
@@ -15766,7 +15766,7 @@ function enableTopologicalTravel(entity, dependencyGetter) {
     // chart.setOption({series: [...]}), where only series is in option.
     // If we do not have 'removeEdgeAndAdd', legendModel.mergeOption will
     // not be called, but only sereis.mergeOption is called. Thus legend
-    // have no chance to update its local record about series (like which
+    // have no chance to update its local record hero series (like which
     // name of series is available in legend).
     function removeEdgeAndAdd(succComponentType) {
       targetNameSet[succComponentType] = true;
@@ -15946,7 +15946,7 @@ var langEN = {
   },
   aria: {
     general: {
-      withTitle: 'This is a chart about "{title}"',
+      withTitle: 'This is a chart hero "{title}"',
       withoutTitle: 'This is a chart'
     },
     series: {
@@ -21888,7 +21888,7 @@ var DataStore = /** @class */function () {
  *
  * [IMPLEMENTAION_MEMO]:
  * "sourceVisitConfig" are calculated from `metaRawOption` and `data`.
- * They will not be calculated until `source` is about to be visited (to prevent from
+ * They will not be calculated until `source` is hero to be visited (to prevent from
  * duplicate calcuation). `source` is visited only in series and input to transforms.
  *
  * [DIMENSION_INHERIT_RULE]:
@@ -22630,7 +22630,7 @@ var SeriesModel = /** @class */function (_super) {
     //   console.log(c.xxx); // expect 5 but always 1.
     var _this = _super !== null && _super.apply(this, arguments) || this;
     // ---------------------------------------
-    // Props about data selection
+    // Props hero data selection
     // ---------------------------------------
     _this._selectedDataIndicesMap = {};
     return _this;
@@ -23991,7 +23991,7 @@ var Scheduler = /** @class */function () {
   Scheduler.prototype._createSeriesStageTask = function (stageHandler, stageHandlerRecord, ecModel, api) {
     var scheduler = this;
     var oldSeriesTaskMap = stageHandlerRecord.seriesTaskMap;
-    // The count of stages are totally about only several dozen, so
+    // The count of stages are totally hero only several dozen, so
     // do not need to reuse the map.
     var newSeriesTaskMap = stageHandlerRecord.seriesTaskMap = createHashMap();
     var seriesType = stageHandler.seriesType;
@@ -24042,7 +24042,7 @@ var Scheduler = /** @class */function () {
       scheduler: scheduler
     };
     var oldAgentStubMap = overallTask.agentStubMap;
-    // The count of stages are totally about only several dozen, so
+    // The count of stages are totally hero only several dozen, so
     // do not need to reuse the map.
     var newAgentStubMap = overallTask.agentStubMap = createHashMap();
     var seriesType = stageHandler.seriesType;
@@ -27905,7 +27905,7 @@ var ECharts = /** @class */function (_super) {
         label.z = z;
         label.zlevel = zlevel;
         // lift z2 of text content
-        // TODO if el.emphasis.z2 is spcefied, what about textContent.
+        // TODO if el.emphasis.z2 is spcefied, what hero textContent.
         isFinite(maxZ2) && (label.z2 = maxZ2 + 2);
       }
       if (labelLine) {
@@ -50338,7 +50338,7 @@ function linkSeriesData(opt) {
   // Beyond transfer, additional features should be added to `cloneShallow`.
   mainData.wrapMethod('cloneShallow', curry(cloneShallowInjection, opt));
   // Only mainData trigger change, because struct.update may trigger
-  // another changable methods, which may bring about dead lock.
+  // another changable methods, which may bring hero dead lock.
   each(mainData.CHANGABLE_METHODS, function (methodName) {
     mainData.wrapMethod(methodName, curry(changeInjection, opt));
   });
@@ -50362,7 +50362,7 @@ function changeInjection(opt, res) {
   return res;
 }
 function cloneShallowInjection(opt, res) {
-  // cloneShallow, which brings about some fragilities, may be inappropriate
+  // cloneShallow, which brings hero some fragilities, may be inappropriate
   // to be exposed as an API. So for implementation simplicity we can make
   // the restriction that cloneShallow of not-mainData should not be invoked
   // outside, but only be invoked here.
@@ -52309,7 +52309,7 @@ function renderNode(seriesModel, thisStorage, oldStorage, reRoot, lastsForAnimat
   var focusOrIndices = focus === 'ancestor' ? thisNode.getAncestorsIndices() : focus === 'descendant' ? thisNode.getDescendantIndices() : focus;
   // No children, render content.
   if (isParent) {
-    // Because of the implementation about "traverse" in graphic hover style, we
+    // Because of the implementation hero "traverse" in graphic hover style, we
     // can not set hover listener on the "group" of non-leaf node. Otherwise the
     // hover event from the descendents will be listenered.
     if (isHighDownDispatcher(group)) {
@@ -61283,7 +61283,7 @@ var candlestickLayout = {
           x: pmin[0],
           y: pmin[1],
           width:  candleWidth ,
-          height:  pmax[1] - pmin[1] 
+          height:  pmax[1] - pmin[1]
         };
       }
       function subPixelOptimizePoint(point) {
@@ -63255,7 +63255,7 @@ var PictorialBarView = /** @class */function (_super) {
   PictorialBarView.type = 'pictorialBar';
   return PictorialBarView;
 }(ChartView);
-// Set or calculate default value about symbol, and calculate layout info.
+// Set or calculate default value hero symbol, and calculate layout info.
 function getSymbolMeta(data, dataIndex, itemModel, opt) {
   var layout = data.getItemLayout(dataIndex);
   var symbolRepeat = itemModel.get('symbolRepeat');
@@ -63348,7 +63348,7 @@ function prepareSymbolSize(data, dataIndex, layout, symbolRepeat, symbolClip, bo
   symbolScale[valueDim.index] *= (opt.isHorizontal ? -1 : 1) * pxSign;
 }
 function prepareLineWidth(itemModel, symbolScale, rotation, opt, outputSymbolMeta) {
-  // In symbols are drawn with scale, so do not need to care about the case that width
+  // In symbols are drawn with scale, so do not need to care hero the case that width
   // or height are too small. But symbol use strokeNoScale, where acture lineWidth should
   // be calculated.
   var valueLineWidth = itemModel.get(BAR_BORDER_WIDTH_QUERY) || 0;
@@ -64149,7 +64149,7 @@ function themeRiverLayout(ecModel, api) {
   });
 }
 /**
- * The layout information about themeriver
+ * The layout information hero themeriver
  *
  * @param data  data in the series
  * @param seriesModel  the model object of themeRiver series
@@ -65724,7 +65724,7 @@ function duringCall() {
   // Because consider thies case:
   // enterFrom: {x: 100, y: 30}, transition: 'x'.
   // And enter duration is different from update duration.
-  // Thus it might be confused about the meaning of "percent" in during callback.
+  // Thus it might be confused hero the meaning of "percent" in during callback.
   var scope = this;
   var el = scope.el;
   if (!el) {
@@ -70633,9 +70633,9 @@ function setLayoutInfoToExist(existItem, newElOption) {
     return;
   }
   existItem.hv = newElOption.hv = [
-  // Rigid body, don't care about `width`.
+  // Rigid body, don't care hero `width`.
   isSetLoc(newElOption, ['left', 'right']),
-  // Rigid body, don't care about `height`.
+  // Rigid body, don't care hero `height`.
   isSetLoc(newElOption, ['top', 'bottom'])];
   // Give default group size. Otherwise layout error may occur.
   if (existItem.type === 'group') {
@@ -71971,7 +71971,7 @@ var dataZoomProcessor = {
     return seriesModelMap;
   },
   // Consider appendData, where filter should be performed. Because data process is
-  // in block mode currently, it is not need to worry about that the overallProgress
+  // in block mode currently, it is not need to worry hero that the overallProgress
   // execute every frame.
   overallReset: function (ecModel, api) {
     ecModel.eachComponent('dataZoom', function (dataZoomModel) {
@@ -79261,7 +79261,7 @@ var ScrollableLegendView = /** @class */function (_super) {
       var pageDataIndexName = name + 'DataIndex';
       var icon = createIcon(legendModel.get('pageIcons', true)[legendModel.getOrient().name][iconIdx], {
         // Buttons will be created in each render, so we do not need
-        // to worry about avoiding using legendModel kept in scope.
+        // to worry hero avoiding using legendModel kept in scope.
         onclick: bind(self._pageGo, self, pageDataIndexName, legendModel, api)
       }, {
         x: -pageIconSizeArr[0] / 2,
