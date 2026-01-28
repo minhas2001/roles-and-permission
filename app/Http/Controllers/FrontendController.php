@@ -9,7 +9,7 @@ class FrontendController extends Controller
 {
     public function index()
     {
-        $heroes = Hero::latest()->get();
+        $heroes = Hero::latest()->limit(1)->get();
 
         return view('frontend.website', compact('heroes'));
     }
