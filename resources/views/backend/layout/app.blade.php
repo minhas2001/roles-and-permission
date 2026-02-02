@@ -61,6 +61,36 @@
 <!-- Template Main JS File -->
 <script src="{{asset('backend/assets/js/main.js')}}"></script>
 
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+        const card = document.getElementById('imageUploadCard');
+        const input = document.getElementById('imageInput');
+        const preview = document.getElementById('previewImage');
+
+        card.addEventListener('click', function () {
+            input.click();
+        });
+
+        input.addEventListener('change', function (event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            if (!file.type.startsWith('image/')) {
+                toastr.error('Please select a valid image file');
+                input.value = '';
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                preview.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        });
+
+    });
+</script>
 </body>
 
 </html>

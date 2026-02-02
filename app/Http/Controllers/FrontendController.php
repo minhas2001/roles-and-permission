@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Collection;
 use App\Models\Hero;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -11,7 +13,10 @@ class FrontendController extends Controller
     {
         $heroes = Hero::latest()->limit(1)->get();
 
-        return view('frontend.website', compact('heroes'));
+        $collections = Collection::latest()->limit(1)->get();
+        $products = Product::all();
+
+        return view('frontend.website', compact('heroes','collections','products'));
     }
 
     public function create()

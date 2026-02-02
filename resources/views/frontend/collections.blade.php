@@ -5,6 +5,19 @@
         <div class="row gy-4">
 
             <div class="col-lg-6">
+                @forelse($collections as $collection)
+                <div class="category-featured" data-aos="fade-right" data-aos-delay="200">
+                    <div class="category-image" style="width: 40vh; height: 70vh; border-radius: 20px " >
+                        <img src="{{ asset($collection->image) }}" alt="Women's Collection" class=" object-cover " style="height: 100%; width: 100% ;border-radius: 20px">
+                    </div>
+                    <div class="category-content">
+                        <span class="category-tag">Trending Collections</span>
+                        <h2>{{ $collection->title }}</h2>
+                        <p>{{ $collection->description }}.</p>
+                        <a href="#" class="btn-shop">Explore Collection <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+                @empty
                 <div class="category-featured" data-aos="fade-right" data-aos-delay="200">
                     <div class="category-image">
                         <img src="{{asset('frontend/assets/img/product/product-f-2.webp')}}" alt="Women's Collection" class="img-fluid">
@@ -17,6 +30,7 @@
                         <a href="#" class="btn-shop">Explore Collection <i class="bi bi-arrow-right"></i></a>
                     </div>
                 </div>
+                @endforelse
             </div>
 
             <div class="col-lg-6">

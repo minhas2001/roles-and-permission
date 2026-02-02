@@ -14,6 +14,8 @@ Route::get('/', [\App\Http\Controllers\FrontendController::class, 'index'])->nam
 
 Route::resources([
 'heroes' => HeroController::class,
+'collections' => \App\Http\Controllers\CollectionController::class,
+'products' => \App\Http\Controllers\ProductController::class,
 ]);
 
 Auth::routes();
