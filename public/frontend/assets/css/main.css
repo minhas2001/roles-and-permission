@@ -2686,9 +2686,8 @@ section,
 .best-sellers .product-name {
     font-size: 1rem;
     font-weight: 300;
-    line-height: 1.4;
-    margin-bottom: 12px;
-    height: 2.8rem;
+    line-height: 1.4rem;
+
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
@@ -2707,7 +2706,7 @@ section,
     display: flex;
     align-items: center;
     gap: 8px;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
 }
 
 .best-sellers .stars {
@@ -2921,7 +2920,7 @@ section,
     height: 85px;
     position: relative;
     overflow: hidden;
-    border-radius: 8px;
+
 }
 
 .cards .product-card .product-image img {
@@ -2933,6 +2932,7 @@ section,
 
 .cards .product-card .product-image:hover img {
     transform: scale(1.1);
+
 }
 
 .cards .product-card .product-image .product-badges {

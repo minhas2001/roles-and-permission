@@ -36,14 +36,30 @@
                                 {{ html()->text('title')->class('form-control')->id('title') }}
                             </div>
 
+                            <div class="col-lg-4 mb-3">
+                                <label class="control-label">Image</label>
 
+                                <div class="card image-upload-card text-center" id="imageUploadCard" style="cursor:pointer;">
+                                    <div class="card-body">
 
-                            <hr class="my-3">
-                            <h5 class="card-title mb-3">Product Product Section</h5>
+                                        <img id="previewImage"
+                                             src="{{ asset('backend/images/image-placeholder.png') }}"
+                                             class="img-fluid mb-2"
+                                             style="max-height: 100px; object-fit: contain; border-radius: 20px">
 
-                            <div class="col-md-6 mb-3">
-                                {{ html()->label('Image', 'image')->class('form-label') }}
-                                {{ html()->file('image')->class('form-control')->id('image') }}
+                                        <p class="text-muted mb-0">Click to upload image</p>
+
+                                        {{ html()->file('image')
+                                            ->class('d-none')
+                                            ->id('imageInput')
+                                            ->accept('image/*') }}
+
+                                    </div>
+                                </div>
+
+                                @error('image')
+                                <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
 
 

@@ -86,6 +86,33 @@
                         <i class="bi bi-award"></i> Best Sellers
                     </h3>
                     <div class="product-list">
+                        @forelse($products->take(4) as $product)
+                            <div class="product-card">
+                                <div class="product-image">
+                                    <img src="{{asset($product->image)}}" alt="Slim Fit Denim" class="img-fluid" style="border-radius: 10px">
+                                    <div class="product-badges">
+                                        <span class="badge-sale">-15%</span>
+                                    </div>
+                                </div>
+                                <div class="product-info">
+                                    <h4 class="product-name">{{$product->title}}</h4>
+                                    <div class="product-rating">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <span>(87)</span>
+                                    </div>
+                                    <div class="product-price">
+                                        <span class="current-price">Rs {{$product->sale_price}}</span>
+                                        <span class="old-price">Rs {{$product->original_price}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        @empty
+
+
                         <div class="product-card">
                             <div class="product-image">
                                 <img src="{{asset('frontend/assets/img/product/product-2.webp')}}" alt="Slim Fit Denim" class="img-fluid">
@@ -154,6 +181,8 @@
                                 </div>
                             </div>
                         </div>
+
+                        @endforelse
                     </div>
                 </div>
             </div>

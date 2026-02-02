@@ -11,11 +11,11 @@
 
         <div class="row g-5">
 
-            @forelse($products as $product)
+            @forelse($products->take(4) as $product)
                 <!-- Product 1 -->
                 <div class="col-lg-3 col-md-6">
-                    <div class="product-item">
-                        <div class="product-image">
+                    <div class="product-item" style="border-radius: 20px">
+                        <div class="product-image" style="border-radius: 20px">
                             <div class="product-badge">Limited</div>
                             <img src="{{asset( $product->image)}}" alt="Product Image"
                                  class="img-fluid"
@@ -47,8 +47,8 @@
                                 <span class="rating-count">(24)</span>
                             </div>
                             <div class="product-price">
-                                <span class="old-price">{{ $product->original_price }}</span>
-                                <span class="current-price">{{ $product->sale_price }}</span>
+                                <span class="old-price">Rs {{ $product->original_price }}</span>
+                                <span class="current-price">Rs {{ $product->sale_price }}</span>
 
                             </div>
                             <div class="color-swatches">

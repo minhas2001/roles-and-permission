@@ -51,11 +51,31 @@
                                 {{ html()->file('image')->class('form-control')->id('image') }}
                             </div>
 
-                            <div class="col-md-6 mb-3">
-                                {{ html()->label('Image Title', 'image_title')->class('form-label') }}
-                                {{ html()->textarea('image_title')->class('form-control')->id('image_title')->rows(3) }}
-                            </div>
+                            <div class="col-lg-4 mb-3">
+                                <label class="control-label">Image</label>
 
+                                <div class="card image-upload-card text-center" id="imageUploadCard" style="cursor:pointer;">
+                                    <div class="card-body">
+
+                                        <img id="previewImage"
+                                             src="{{ asset('backend/images/image-placeholder.png') }}"
+                                             class="img-fluid mb-2"
+                                             style="max-height: 100px; object-fit: contain; border-radius: 20px">
+
+                                        <p class="text-muted mb-0">Click to upload image</p>
+
+                                        {{ html()->file('image')
+                                            ->class('d-none')
+                                            ->id('imageInput')
+                                            ->accept('image/*') }}
+
+                                    </div>
+                                </div>
+
+                                @error('image')
+                                <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
                             <div class="col-md-6 mb-3">
                                 {{ html()->label('Original Price', 'original_price')->class('form-label') }}
                                 {{ html()->text('original_price')->class('form-control')->id('original_price') }}

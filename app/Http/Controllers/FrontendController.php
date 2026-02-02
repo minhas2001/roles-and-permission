@@ -14,7 +14,7 @@ class FrontendController extends Controller
         $heroes = Hero::latest()->limit(1)->get();
 
         $collections = Collection::latest()->limit(1)->get();
-        $products = Product::all();
+        $products = Product::latest()->get();
 
         return view('frontend.website', compact('heroes','collections','products'));
     }
