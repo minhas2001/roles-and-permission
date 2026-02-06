@@ -11,6 +11,31 @@
                         <i class="bi bi-fire"></i> Trending Now
                     </h3>
                     <div class="product-list">
+                        @forelse($trending_products->take(3) as $product)
+                            <div class="product-card">
+                                <div class="product-image">
+                                    <img src="{{asset( $product->image)}}" alt="Premium Leather Tote"
+                                         class="img-fluid" style="border-radius: 10px">
+                                    <div class="product-badges">
+                                        <span class="badge-new">New</span>
+                                    </div>
+                                </div>
+                                <div class="product-info">
+                                    <h4 class="product-name">{{$product->title}}</h4>
+                                    <div class="product-rating">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-half"></i>
+                                        <span>(24)</span>
+                                    </div>
+                                    <div class="product-price">
+                                        <span class="current-price">Rs {{$product->original_price}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        @empty
                         <div class="product-card">
                             <div class="product-image">
                                 <img src="{{asset('frontend/assets/img/product/product-1.webp')}}" alt="Premium Leather Tote"
@@ -76,6 +101,7 @@
                                 </div>
                             </div>
                         </div>
+                        @endforelse
                     </div>
                 </div>
             </div>
@@ -86,7 +112,7 @@
                         <i class="bi bi-award"></i> Best Sellers
                     </h3>
                     <div class="product-list">
-                        @forelse($products->take(4) as $product)
+                        @forelse($best_sellers->take(3) as $product)
                             <div class="product-card">
                                 <div class="product-image">
                                     <img src="{{asset($product->image)}}" alt="Slim Fit Denim" class="img-fluid" style="border-radius: 10px">
@@ -181,7 +207,6 @@
                                 </div>
                             </div>
                         </div>
-
                         @endforelse
                     </div>
                 </div>
@@ -193,7 +218,29 @@
                         <i class="bi bi-star"></i> Featured Items
                     </h3>
                     <div class="product-list">
+                        @forelse($features->take(3) as $product)
                         <div class="product-card">
+                            <div class="product-image">
+                                <img src="{{asset($product->image)}}" alt="Pleated Midi Skirt"
+                                     class="img-fluid" style="border-radius: 10px">
+                            </div>
+                            <div class="product-info">
+                                <h4 class="product-name">{{$product->title}}</h4>
+                                <div class="product-rating">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star"></i>
+                                    <span>(32)</span>
+                                </div>
+                                <div class="product-price">
+                                    <span class="current-price">Rs {{$product->original_price}}</span>
+                                </div>
+                            </div>
+                        </div>
+                            @empty
+                            <div class="product-card">
                             <div class="product-image">
                                 <img src="{{asset('frontend/assets/img/product/product-7.webp')}}" alt="Pleated Midi Skirt"
                                      class="img-fluid">
@@ -258,6 +305,7 @@
                                 </div>
                             </div>
                         </div>
+                        @endforelse
                     </div>
                 </div>
             </div>

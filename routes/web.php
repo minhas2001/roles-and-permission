@@ -16,6 +16,7 @@ Route::resources([
 'heroes' => HeroController::class,
 'collections' => \App\Http\Controllers\CollectionController::class,
 'products' => \App\Http\Controllers\ProductController::class,
+'product-type' => \App\Http\Controllers\ProductTypeController::class,
 ]);
 
 Auth::routes();

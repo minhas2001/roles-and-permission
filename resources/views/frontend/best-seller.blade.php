@@ -11,7 +11,7 @@
 
         <div class="row g-5">
 
-            @forelse($products->take(4) as $product)
+            @forelse($best_sellers as $product)
                 <!-- Product 1 -->
                 <div class="col-lg-3 col-md-6">
                     <div class="product-item" style="border-radius: 20px">

@@ -1,3 +1,5 @@
+
+
 <header id="header" class="header sticky-top">
 
     <!-- Main Header -->
@@ -61,8 +63,8 @@
                                 </a>
                             </div>
                             <div class="dropdown-footer">
-                                <a href="register.html" class="btn btn-primary w-100 mb-2">Sign In</a>
-                                <a href="login.html" class="btn btn-outline-primary w-100">Register</a>
+                                <a href="{{route('dashboard')}}" class="btn btn-primary w-100 mb-2">Sign In</a>
+
                             </div>
                         </div>
                     </div>
@@ -89,10 +91,10 @@
 
     <!-- Navigation -->
     <div class="header-nav row d-flex align-items-center">
-        <div class="container-fluid container-xl position-relative col-10">
+        <div class="container-fluid container-xl position-relative ">
             <nav id="navmenu" class="navmenu align-items-center">
                 <ul>
-                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="{{route('website')}}" class="active">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="category.html">Category</a></li>
                     <li><a href="product-details.html">Product Details</a></li>
@@ -105,11 +107,11 @@
             </nav>
 
         </div>
-        <div class="col-2 ">
-            <a href="{{route('dashboard')}}" class="btn btn-outline-light">
-                login
-            </a>
-        </div>
+{{--        <div class="col-2 ">--}}
+{{--            <a href="{{route('dashboard')}}" class="btn btn-outline-light">--}}
+{{--                login--}}
+{{--            </a>--}}
+{{--        </div>--}}
 
 
     </div>
@@ -129,3 +131,139 @@
     </div>
 
 </header>
+<style>
+    .header.sticky-top {
+        position: relative;
+    }
+
+    .main-header {
+        transition: transform 0.3s ease-in-out;
+        transform: translateY(0);
+        will-change: transform;
+    }
+
+    .header-nav {
+        position: relative;
+        transition: all 0.3s ease-in-out;
+        background-color: #fff;
+        z-index: 999;
+    }
+
+    /* When scrolled, nav becomes fixed */
+    .header-nav.is-fixed {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Placeholder to prevent content jump */
+    .nav-placeholder {
+        display: none;
+        height: 0;
+    }
+
+    .nav-placeholder.active {
+        display: block;
+    }
+
+    /* Smooth transitions */
+    .main-header,
+    .header-nav {
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+    }
+
+    /* Hide main header when scrolled */
+    .main-header.is-hidden {
+        transform: translateY(-100%);
+    }
+</style>
+
+<script>
+    (function() {
+        'use strict';
+
+        const mainHeader = document.querySelector('.main-header');
+        const headerNav = document.querySelector('.header-nav');
+
+        if (!mainHeader || !headerNav) return;
+
+        // Create placeholder element
+        const placeholder = document.createElement('div');
+        placeholder.className = 'nav-placeholder';
+        headerNav.parentNode.insertBefore(placeholder, headerNav);
+
+        let lastScrollTop = 0;
+        let ticking = false;
+        const scrollThreshold = 100; // When to start hiding main header
+        let navOffset = 0;
+
+        // Calculate initial offset
+        function calculateOffset() {
+            navOffset = headerNav.offsetTop;
+            placeholder.style.height = headerNav.offsetHeight + 'px';
+        }
+
+        calculateOffset();
+
+        function updateHeader(scrollTop) {
+            // Scrolling down past threshold
+            if (scrollTop > lastScrollTop && scrollTop > scrollThreshold) {
+                mainHeader.classList.add('is-hidden');
+
+                // Fix nav at top when main header is hidden
+                if (scrollTop >= navOffset - scrollThreshold) {
+                    headerNav.classList.add('is-fixed');
+                    placeholder.classList.add('active');
+                }
+            }
+            // Scrolling up
+            else if (scrollTop < lastScrollTop) {
+                mainHeader.classList.remove('is-hidden');
+
+                // Remove fixed nav when scrolling back up
+                if (scrollTop < navOffset) {
+                    headerNav.classList.remove('is-fixed');
+                    placeholder.classList.remove('active');
+                }
+            }
+
+            // At the very top
+            if (scrollTop <= 10) {
+                mainHeader.classList.remove('is-hidden');
+                headerNav.classList.remove('is-fixed');
+                placeholder.classList.remove('active');
+            }
+
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        }
+
+        function onScroll() {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                    updateHeader(scrollTop);
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }
+
+        // Event listeners
+        window.addEventListener('scroll', onScroll, { passive: true });
+
+        // Handle window resize
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                calculateOffset();
+            }, 250);
+        }, { passive: true });
+
+    })();
+</script>

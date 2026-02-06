@@ -26,17 +26,46 @@
                     </div>
                 </div>
             </div>
+        @empty
+            <div class="hero-content">
+                <div class="content-wrapper" data-aos="fade-up" data-aos-delay="100">
+                    <h1 class="hero-title">Discover Amazing Products</h1>
+                    <p class="hero-description">Explore our curated collection of premium items designed to enhance your
+                        lifestyle. From fashion to tech, find everything you need with exclusive deals and fast
+                        shipping.</p>
+                    <div class="hero-actions" data-aos="fade-up" data-aos-delay="200">
+                        <a href="#products" class="btn-primary">Shop Now</a>
+                        <a href="#categories" class="btn-secondary">Browse Categories</a>
+                    </div>
+                    <div class="features-list" data-aos="fade-up" data-aos-delay="300">
+                        <div class="feature-item">
+                            <i class="bi bi-truck"></i>
+                            <span>Free Shipping</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="bi bi-award"></i>
+                            <span>Quality Guarantee</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="bi bi-headset"></i>
+                            <span>24/7 Support</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endforelse
 
+        @forelse($hero_products as $product)
             <div class="hero-visuals">
                 <div class="product-showcase" data-aos="fade-left" data-aos-delay="200">
                     <div class="product-card featured">
-                        <img src="{{ asset($hero->image) }}" alt="{{ $hero->title }}" class="img-fluid">
+                        <img src="{{ asset($product->image) }}" alt="{{ $product->title }}" class="img-fluid">
                         <div class="product-badge">Best Seller</div>
                         <div class="product-info">
-                            <h4>{{ $hero->image_title ?? 'Featured Product' }}</h4>
+                            <h4>{{ $product->image_title ?? 'Featured Product' }}</h4>
                             <div class="price">
-                                <span class="sale-price">Rs: {{ $hero->sale_price }}</span>
-                                <span class="original-price">Rs: {{$hero->original_price}}</span>
+                                <span class="sale-price">Rs: {{ $product->sale_price }}</span>
+                                <span class="original-price">Rs: {{$product->original_price}}</span>
                             </div>
                         </div>
                     </div>

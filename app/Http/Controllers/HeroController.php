@@ -25,16 +25,6 @@ class HeroController extends Controller
         $hero = new Hero();
         $hero->title = $request->title;
         $hero->description = $request->description;
-        $hero->image_title = $request->image_title;
-        $hero->original_price = $request->original_price;
-        $hero->sale_price = $request->sale_price;
-
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $imageNamed = uniqid() . '.' . $image->getClientOriginalExtension();
-            $filepath = $image->move('assets/hero', $imageNamed);
-            $hero->image = $filepath;
-        }
 
         $hero -> save();
 
@@ -57,17 +47,6 @@ class HeroController extends Controller
         $hero = Hero::find($id);
         $hero->title = $request->title;
         $hero->description = $request->description;
-        $hero->image_title = $request->image_title;
-        $hero->original_price = $request->original_price;
-        $hero->sale_price = $request->sale_price;
-
-        // In store method
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $imageNamed = uniqid() . '.' . $image->getClientOriginalExtension();
-            $filepath = $image->move('assets/hero', $imageNamed);
-            $hero->image = $filepath;
-        }
 
         $hero -> save();
 

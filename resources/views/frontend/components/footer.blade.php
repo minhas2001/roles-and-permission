@@ -72,17 +72,6 @@
                                 <span>Monday-Friday: 9am-6pm<br>Saturday: 10am-4pm<br>Sunday: Closed</span>
                             </div>
                         </div>
-
-                        <div class="app-buttons mt-4">
-                            <a href="#" class="app-btn">
-                                <i class="bi bi-apple"></i>
-                                <span>App Store</span>
-                            </a>
-                            <a href="#" class="app-btn">
-                                <i class="bi bi-google-play"></i>
-                                <span>Google Play</span>
-                            </a>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -90,38 +79,24 @@
     </div>
 
     <div class="footer-bottom">
-        <div class="container">
+        <div class="container ">
             <div class="row gy-3 align-items-center">
                 <div class="col-lg-6 col-md-12">
                     <div class="copyright">
                         <p>© <span>Copyright</span> <strong class="sitename">NiceShop</strong>. All Rights Reserved.</p>
                     </div>
                     <div class="credits mt-1">
-                        <!-- All the links in the footer should remain intact. -->
-                        <!-- You can delete the links only if you've purchased the pro version. -->
-                        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-                        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                        Designed with ❤️ by <a href="https://bootstrapmade.com/">Minhas</a>
                     </div>
                 </div>
 
                 <div class="col-lg-6 col-md-12">
                     <div class="d-flex flex-wrap justify-content-lg-end justify-content-center align-items-center gap-4">
-                        <div class="payment-methods">
-                            <div class="payment-icons">
-                                <i class="bi bi-credit-card" aria-label="Credit Card"></i>
-                                <i class="bi bi-paypal" aria-label="PayPal"></i>
-                                <i class="bi bi-apple" aria-label="Apple Pay"></i>
-                                <i class="bi bi-google" aria-label="Google Pay"></i>
-                                <i class="bi bi-shop" aria-label="Shop Pay"></i>
-                                <i class="bi bi-cash" aria-label="Cash on Delivery"></i>
-                            </div>
-                        </div>
 
                         <div class="legal-links">
-                            <a href="tos.html">Terms</a>
-                            <a href="privacy.html">Privacy</a>
-                            <a href="tos.html">Cookies</a>
+                            <a href="#">Terms</a>
+                            <a href="#">Privacy</a>
+                            <a href="#">Cookies</a>
                         </div>
                     </div>
                 </div>

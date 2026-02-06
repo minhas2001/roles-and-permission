@@ -5,6 +5,32 @@
             <h2 class="text-center">
                 Featured Products
             </h2>
+            @forelse($features as $product)
+            <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+                <div class="product-showcase ">
+                    <div class="product-image">
+                        <img src="{{asset( $product->image)}}" alt="Featured Product"
+                             class="img-fluid">
+                        <div class="discount-badge">-45%</div>
+                    </div>
+                    <div class="product-details">
+                        <h6>{{$product->title}}</h6>
+                        <div class="price-section">
+                            <span class="original-price">Rs {{$product->original_price}}</span>
+                            <span class="sale-price">Rs {{$product->sale_price}}</span>
+                        </div>
+                        <div class="rating-stars">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <span class="rating-count">(324)</span>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- End Product Showcase -->
+            @empty
             <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="100">
                 <div class="product-showcase ">
                     <div class="product-image">
@@ -104,6 +130,8 @@
                     </div>
                 </div>
             </div><!-- End Product Showcase -->
+
+            @endforelse
         </div>
     </div>
 </section>

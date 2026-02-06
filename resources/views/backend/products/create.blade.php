@@ -44,7 +44,7 @@
 
                                         <img id="previewImage"
                                              src="{{ asset('backend/images/image-placeholder.png') }}"
-                                             class="img-fluid mb-2"
+                                             class="img-fluid p-2"
                                              style="max-height: 100px; object-fit: contain; border-radius: 20px">
 
                                         <p class="text-muted mb-0">Click to upload image</p>
@@ -71,6 +71,10 @@
                             <div class="col-md-6 mb-3">
                                 {{ html()->label('Sale Price', 'sale_price')->class('form-label') }}
                                 {{ html()->text('sale_price')->class('form-control')->id('sale_price') }}
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                {{ html()->label('Product type', 'product_type_id' )->class('form-label') }}
+                                {{ html()->select('product_type_id', $productType )->class('form-control form-select')->id('product_type_id', $productType ) }}
                             </div>
                         </div>
 

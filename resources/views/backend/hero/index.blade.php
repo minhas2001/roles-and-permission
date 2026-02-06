@@ -36,7 +36,7 @@
                                 <th scope="col">Title</th>
                                 <th scope="col">Description</th>
                                 <th scope="col">Image</th>
-                                <th scope="col">Image Description</th>
+                                <th scope="col">Image Title</th>
                                 <th scope="col">Price</th>
                             </tr>
                             </thead>

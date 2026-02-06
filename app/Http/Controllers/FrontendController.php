@@ -12,11 +12,16 @@ class FrontendController extends Controller
     public function index()
     {
         $heroes = Hero::latest()->limit(1)->get();
+        $hero_products = Product::latest()->limit(1)->get();
 
         $collections = Collection::latest()->limit(1)->get();
+
+        $best_sellers = Product::where('product_type_id' ,'2' )->latest()->take(4)->get();
+        $trending_products = Product::where('product_type_id' ,'1' )->latest()->take(4)->get();
+        $features = Product::where('product_type_id' ,'3' )->latest()->take(4)->get();
         $products = Product::latest()->get();
 
-        return view('frontend.website', compact('heroes','collections','products'));
+        return view('frontend.website', compact('heroes','collections','products', 'best_sellers','trending_products','features','hero_products'));
     }
 
     public function create()

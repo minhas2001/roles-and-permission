@@ -1,11 +1,11 @@
 @extends('backend.layout.app')
 @section('main')
     <div class="pagetitle">
-        <h1>Products Tables</h1>
+        <h1>Hero Tables</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item">Products</li>
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item">Hero</li>
                 <li class="breadcrumb-item active">Details</li>
             </ol>
         </nav>
@@ -18,11 +18,11 @@
                     <div class="card-body">
                         <div class="row p-3">
                             <div class="col-10">
-                                <h5 class="card-title">Products Table</h5>
+                                <h5 class="card-title">Default Table</h5>
 
                             </div>
                             <div class="col-2">
-                                <a href="{{route('products.create')}}" class="btn btn-primary float-end">
+                                <a href="{{route('product-type.create')}}" class="btn btn-primary float-end">
                                     + create new
                                 </a>
 
@@ -33,33 +33,24 @@
                             <thead>
                             <tr>
                                 <th scope="col">S#</th>
-                                <th scope="col">Title</th>
-                                <th scope="col">Image</th>
-                                <th scope="col">Price</th>
-                                <th scope="col">Type</th>
-
+                                <th scope="col">Name</th>
+                                <th scope="col">Code</th>
+                                <th scope="col">Status</th>
                                 <th scope="col">Action</th>
 
                             </tr>
                             </thead>
                             <tbody>
-                            @forelse($products as $product)
+                            @forelse($productTypes as $productType)
                                 <tr>
                                     <td>{{$loop->iteration}}</td>
-                                    <td>{{$product->title}}</td>
-                                    <td>
-                                        <img class="avatar rounded-circle"
-                                             src="{{asset($product->image)}}" alt="image"
-                                             width="40px" height="40px">
-                                    </td>
+                                    <td>{{$productType->name}}</td>
+                                    <td>{{$productType->code}}</td>
 
-                                    <td>{{$product->sale_price}}</td>
-                                    <td>{{$product->productType->name}}</td>
-
-                                    <td class="d-flex gap-2 p-2">
+                                    <td class="d-flex gap-2 justify-content-center text-center">
                                         <a class="btn btn-sm btn-primary bi bi-pencil"
-                                           href="{{route('products.edit',$product->id)}}"></a>
-                                        <form action="{{route('products.destroy',$product->id)}}" method="POST">
+                                           href="{{route('heroes.edit',$productType->id)}}"></a>
+                                        <form action="{{route('heroes.destroy',$productType->id)}}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit"

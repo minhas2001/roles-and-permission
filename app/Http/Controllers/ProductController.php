@@ -2,27 +2,32 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProductRequest;
 use App\Models\Product;
+use App\Models\ProductType;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
     public function index()
     {
-        $products = Product::get();
+        $products = Product::with('productType')->get();
         return view('backend.products.index',compact('products'));
     }
 
     public function create()
     {
-        return view('backend.products.create');
+        $productType = ProductType::pluck('name','id');
+        return view('backend.products.create',compact('productType'));
     }
 
     public function store(Request $request)
     {
 
         $product = new Product();
+
         $product->title = $request->title;
+        $product->product_type_id = $request->product_type_id;
         $product->original_price = $request->original_price;
         $product->sale_price = $request->sale_price;
 
@@ -45,7 +50,8 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = Product::find($id);
-        return view('backend.products.edit',compact('product'));
+        $productType = ProductType::pluck('name','id');
+        return view('backend.products.edit',compact('product','productType'));
     }
 
     public function update(Request $request, $id)
@@ -53,6 +59,7 @@ class ProductController extends Controller
 
         $product = Product::find($id);
         $product->title = $request->title;
+        $product->product_type_id = $request->product_type_id;
         $product->original_price = $request->original_price;
         $product->sale_price = $request->sale_price;
 
