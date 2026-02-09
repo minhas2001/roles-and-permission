@@ -24,8 +24,15 @@ class FrontendController extends Controller
         return view('frontend.website', compact('heroes','collections','products', 'best_sellers','trending_products','features','hero_products'));
     }
 
-    public function create()
+    public function getProductDetails($id)
     {
+        $product = Product::find($id);
+        return view('frontend.products.product-details', compact('product'));
+    }
+    public function getProductPage()
+    {
+        $products = Product::get();
+        return view('frontend.products.products-page',compact('products'));
     }
 
     public function store(Request $request)

@@ -11,12 +11,15 @@ Route::get('/dashboard', function () {
 })->name('dashboard');
 
 Route::get('/', [\App\Http\Controllers\FrontendController::class, 'index'])->name('website');
+Route::get('/product/{id}/details', [\App\Http\Controllers\FrontendController::class, 'getProductDetails'])
+    ->name('product.details');
+Route::get('/product/page', [\App\Http\Controllers\FrontendController::class, 'getProductPage'])->name('product.page');
 
 Route::resources([
-'heroes' => HeroController::class,
-'collections' => \App\Http\Controllers\CollectionController::class,
-'products' => \App\Http\Controllers\ProductController::class,
-'product-type' => \App\Http\Controllers\ProductTypeController::class,
+    'heroes' => HeroController::class,
+    'collections' => \App\Http\Controllers\CollectionController::class,
+    'products' => \App\Http\Controllers\ProductController::class,
+    'product-type' => \App\Http\Controllers\ProductTypeController::class,
 ]);
 
 Auth::routes();

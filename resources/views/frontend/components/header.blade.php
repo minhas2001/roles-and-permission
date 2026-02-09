@@ -94,10 +94,9 @@
         <div class="container-fluid container-xl position-relative ">
             <nav id="navmenu" class="navmenu align-items-center">
                 <ul>
-                    <li><a href="{{route('website')}}" class="active">Home</a></li>
+                    <li><a href="{{ route('website') }}" class="{{ request()->routeIs('website') ? 'active' : '' }}" >Home</a></li>
                     <li><a href="about.html">About</a></li>
-                    <li><a href="category.html">Category</a></li>
-                    <li><a href="product-details.html">Product Details</a></li>
+                    <li><a href="{{ route('product.page') }}" class="{{ request()->routeIs('product.page') ? 'active' : '' }}">Products</a></li>
                     <li><a href="cart.html">Cart</a></li>
                     <li><a href="checkout.html">Checkout</a></li>
                     <li><a href="contact.html">Contact</a></li>

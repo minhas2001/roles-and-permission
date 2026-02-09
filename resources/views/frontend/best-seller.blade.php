@@ -13,8 +13,10 @@
 
             @forelse($best_sellers as $product)
                 <!-- Product 1 -->
+
                 <div class="col-lg-3 col-md-6">
                     <div class="product-item" style="border-radius: 20px">
+                        <a class="product-items" href="{{route('product.details',$product->id)}}">
                         <div class="product-image" style="border-radius: 20px">
                             <div class="product-badge">Limited</div>
                             <img src="{{asset( $product->image)}}" alt="Product Image"
@@ -57,12 +59,14 @@
                                 <span class="swatch" style="background-color: #dc2626;"></span>
                             </div>
                         </div>
+                        </a>
                     </div>
                 </div>
             @empty
                 <!-- Product 1 -->
                 <div class="col-lg-3 col-md-6">
                     <div class="product-item">
+                        <a class="product-items" href="{{route('product.details')}}">
                         <div class="product-image">
                             <div class="product-badge">Limited</div>
                             <img src="{{asset('frontend/assets/img/product/product-1.webp')}}" alt="Product Image"
@@ -101,6 +105,7 @@
                                 <span class="swatch" style="background-color: #dc2626;"></span>
                             </div>
                         </div>
+                        </a>
                     </div>
                 </div>
                 <!-- End Product 1 -->
@@ -108,6 +113,7 @@
                 <!-- Product 2 -->
                 <div class="col-lg-3 col-md-6">
                     <div class="product-item">
+                        <a class="product-items" href="{{route('product.details')}}">
                         <div class="product-image">
                             <div class="product-badge sale-badge">25% Off</div>
                             <img src="{{asset('frontend/assets/img/product/product-4.webp')}}" alt="Product Image"
@@ -150,6 +156,7 @@
                                 <span class="swatch" style="background-color: #8b5cf6;"></span>
                             </div>
                         </div>
+                        </a>
                     </div>
                 </div>
                 <!-- End Product 2 -->
@@ -157,6 +164,7 @@
                 <!-- Product 3 -->
                 <div class="col-lg-3 col-md-6">
                     <div class="product-item">
+                        <a class="product-items" href="{{route('product.details')}}">
                         <div class="product-image">
                             <img src="{{asset('frontend/assets/img/product/product-7.webp')}}" alt="Product Image"
                                  class="img-fluid"
@@ -195,6 +203,7 @@
                                 <span class="swatch" style="background-color: #10b981;"></span>
                             </div>
                         </div>
+                        </a>
                     </div>
                 </div>
                 <!-- End Product 3 -->
@@ -202,6 +211,7 @@
                 <!-- Product 4 -->
                 <div class="col-lg-3 col-md-6">
                     <div class="product-item">
+                        <a class="product-items" href="{{route('product.details')}}">
                         <div class="product-image">
                             <div class="product-badge trending-badge">Trending</div>
                             <img src="{{asset('frontend/assets/img/product/product-10.webp')}}" alt="Product Image"
@@ -241,6 +251,7 @@
                                 <span class="swatch" style="background-color: #f59e0b;"></span>
                             </div>
                         </div>
+                        </a>
                     </div>
                 </div>
                 <!-- End Product 4 -->
