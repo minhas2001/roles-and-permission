@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Backend;
 
-use App\Http\Requests\HeroRequest;
+use App\Http\Controllers\Controller;
 use App\Models\Hero;
 use Illuminate\Http\Request;
 

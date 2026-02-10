@@ -1,4 +1,3 @@
-
 <!-- Cards Section -->
 <section id="cards" class="cards section">
 
@@ -13,94 +12,114 @@
                     <div class="product-list">
                         @forelse($trending_products->take(3) as $product)
                             <div class="product-card">
-                                <div class="product-image">
-                                    <img src="{{asset( $product->image)}}" alt="Premium Leather Tote"
-                                         class="img-fluid" style="border-radius: 10px">
-                                    <div class="product-badges">
-                                        <span class="badge-new">New</span>
+                                <a href="{{route('product.details',$product->id)}}" class="product-card">
+
+                                    <div class="product-image">
+                                        <img src="{{asset( $product->image)}}" alt="Premium Leather Tote"
+                                             class="img-fluid" style="border-radius: 10px">
+                                        <div class="product-badges">
+                                            <span class="badge-new">New</span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="product-info">
-                                    <h4 class="product-name">{{$product->title}}</h4>
-                                    <div class="product-rating">
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-half"></i>
-                                        <span>(24)</span>
+                                    <div class="product-info">
+                                        <h4 class="product-name">{{$product->title}}</h4>
+                                        <div class="product-rating">
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-half"></i>
+                                            <span>(24)</span>
+                                        </div>
+                                        <div class="product-price">
+                                            @if($product->sale_price == null)
+                                            <span class="current-price">Rs {{$product->original_price}}</span>
+                                            @else
+                                                <span class="current-price">Rs {{ $product->sale_price }}</span>
+                                                <span class="old-price">Rs {{ $product->original_price }}</span>
+                                            @endif
+                                        </div>
                                     </div>
-                                    <div class="product-price">
-                                        <span class="current-price">Rs {{$product->original_price}}</span>
-                                    </div>
-                                </div>
+                                </a>
                             </div>
                         @empty
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="{{asset('frontend/assets/img/product/product-1.webp')}}" alt="Premium Leather Tote"
-                                     class="img-fluid">
-                                <div class="product-badges">
-                                    <span class="badge-new">New</span>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <h4 class="product-name">Premium Leather Tote</h4>
-                                <div class="product-rating">
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-half"></i>
-                                    <span>(24)</span>
-                                </div>
-                                <div class="product-price">
-                                    <span class="current-price">$87.50</span>
-                                </div>
-                            </div>
-                        </div>
+                            <div class="product-card">
+                                <a href="{{route('product-details.static')}}" class="product-card">
 
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="{{asset('frontend/assets/img/product/product-3.webp')}}" alt="Statement Earrings"
-                                     class="img-fluid">
+                                    <div class="product-image">
+                                        <img src="{{asset('frontend/assets/img/product/product-1.webp')}}"
+                                             alt="Premium Leather Tote"
+                                             class="img-fluid">
+                                        <div class="product-badges">
+                                            <span class="badge-new">New</span>
+                                        </div>
+                                    </div>
+                                    <div class="product-info">
+                                        <h4 class="product-name">Premium Leather Tote</h4>
+                                        <div class="product-rating">
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-half"></i>
+                                            <span>(24)</span>
+                                        </div>
+                                        <div class="product-price">
+                                            <span class="current-price">$87.50</span>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
-                            <div class="product-info">
-                                <h4 class="product-name">Statement Earrings</h4>
-                                <div class="product-rating">
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <span>(41)</span>
-                                </div>
-                                <div class="product-price">
-                                    <span class="current-price">$39.99</span>
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="{{asset('frontend/assets/img/product/product-5.webp')}}" alt="Organic Cotton Shirt"
-                                     class="img-fluid">
+                            <div class="product-card">
+                                <a href="{{route('product-details.static')}}" class="product-card">
+
+                                    <div class="product-image">
+                                        <img src="{{asset('frontend/assets/img/product/product-3.webp')}}"
+                                             alt="Statement Earrings"
+                                             class="img-fluid">
+                                    </div>
+                                    <div class="product-info">
+                                        <h4 class="product-name">Statement Earrings</h4>
+                                        <div class="product-rating">
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <span>(41)</span>
+                                        </div>
+                                        <div class="product-price">
+                                            <span class="current-price">$39.99</span>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
-                            <div class="product-info">
-                                <h4 class="product-name">Organic Cotton Shirt</h4>
-                                <div class="product-rating">
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star"></i>
-                                    <span>(18)</span>
-                                </div>
-                                <div class="product-price">
-                                    <span class="current-price">$45.00</span>
-                                </div>
+
+                            <div class="product-card">
+                                <a href="{{route('product-details.static')}}" class="product-card">
+
+                                    <div class="product-image">
+                                        <img src="{{asset('frontend/assets/img/product/product-5.webp')}}"
+                                             alt="Organic Cotton Shirt"
+                                             class="img-fluid">
+                                    </div>
+                                    <div class="product-info">
+                                        <h4 class="product-name">Organic Cotton Shirt</h4>
+                                        <div class="product-rating">
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star"></i>
+                                            <span>(18)</span>
+                                        </div>
+                                        <div class="product-price">
+                                            <span class="current-price">$45.00</span>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
-                        </div>
                         @endforelse
                     </div>
                 </div>
@@ -114,99 +133,114 @@
                     <div class="product-list">
                         @forelse($best_sellers->take(3) as $product)
                             <div class="product-card">
-                                <div class="product-image">
-                                    <img src="{{asset($product->image)}}" alt="Slim Fit Denim" class="img-fluid" style="border-radius: 10px">
-                                    <div class="product-badges">
-                                        <span class="badge-sale">-15%</span>
+                                <a href="{{route('product.details',$product->id)}}" class="product-card">
+                                    <div class="product-image">
+                                        <img src="{{asset($product->image)}}" alt="Slim Fit Denim" class="img-fluid"
+                                             style="border-radius: 10px">
+                                        <div class="product-badges">
+                                            <span class="badge-sale">-15%</span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="product-info">
-                                    <h4 class="product-name">{{$product->title}}</h4>
-                                    <div class="product-rating">
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <span>(87)</span>
+                                    <div class="product-info">
+                                        <h4 class="product-name">{{$product->title}}</h4>
+                                        <div class="product-rating">
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <span>(87)</span>
+                                        </div>
+                                        <div class="product-price">
+                                            @if($product->sale_price == null)
+                                                <span class="current-price">Rs {{$product->original_price}}</span>
+                                            @else
+                                                <span class="current-price">Rs {{ $product->sale_price }}</span>
+                                                <span class="old-price">Rs {{ $product->original_price }}</span>
+                                            @endif
+                                        </div>
                                     </div>
-                                    <div class="product-price">
-                                        <span class="current-price">Rs {{$product->sale_price}}</span>
-                                        <span class="old-price">Rs {{$product->original_price}}</span>
-                                    </div>
-                                </div>
+                                </a>
                             </div>
                         @empty
 
+                            <div class="product-card">
+                                <a href="{{route('product-details.static')}}" class="product-card">
+                                    <div class="product-image">
+                                        <img src="{{asset('frontend/assets/img/product/product-2.webp')}}"
+                                             alt="Slim Fit Denim" class="img-fluid">
+                                        <div class="product-badges">
+                                            <span class="badge-sale">-15%</span>
+                                        </div>
+                                    </div>
+                                    <div class="product-info">
+                                        <h4 class="product-name">Slim Fit Denim</h4>
+                                        <div class="product-rating">
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <span>(87)</span>
+                                        </div>
+                                        <div class="product-price">
+                                            <span class="current-price">$68.00</span>
+                                            <span class="old-price">$80.00</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
 
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="{{asset('frontend/assets/img/product/product-2.webp')}}" alt="Slim Fit Denim" class="img-fluid">
-                                <div class="product-badges">
-                                    <span class="badge-sale">-15%</span>
-                                </div>
+                            <div class="product-card">
+                                <a href="{{route('product-details.static')}}" class="product-card">
+                                    <div class="product-image">
+                                        <img src="{{asset('frontend/assets/img/product/product-6.webp')}}"
+                                             alt="Designer Handbag"
+                                             class="img-fluid">
+                                    </div>
+                                    <div class="product-info">
+                                        <h4 class="product-name">Designer Handbag</h4>
+                                        <div class="product-rating">
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-half"></i>
+                                            <span>(56)</span>
+                                        </div>
+                                        <div class="product-price">
+                                            <span class="current-price">$129.99</span>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
-                            <div class="product-info">
-                                <h4 class="product-name">Slim Fit Denim</h4>
-                                <div class="product-rating">
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <span>(87)</span>
-                                </div>
-                                <div class="product-price">
-                                    <span class="current-price">$68.00</span>
-                                    <span class="old-price">$80.00</span>
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="{{asset('frontend/assets/img/product/product-6.webp')}}" alt="Designer Handbag"
-                                     class="img-fluid">
+                            <div class="product-card">
+                                <a href="{{route('product-details.static')}}" class="product-card">
+                                    <div class="product-image">
+                                        <img src="{{asset('frontend/assets/img/product/product-8.webp')}}"
+                                             alt="Leather Crossbody"
+                                             class="img-fluid">
+                                        <div class="product-badges">
+                                            <span class="badge-hot">Hot</span>
+                                        </div>
+                                    </div>
+                                    <div class="product-info">
+                                        <h4 class="product-name">Leather Crossbody</h4>
+                                        <div class="product-rating">
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <span>(112)</span>
+                                        </div>
+                                        <div class="product-price">
+                                            <span class="current-price">$95.50</span>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
-                            <div class="product-info">
-                                <h4 class="product-name">Designer Handbag</h4>
-                                <div class="product-rating">
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-half"></i>
-                                    <span>(56)</span>
-                                </div>
-                                <div class="product-price">
-                                    <span class="current-price">$129.99</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="{{asset('frontend/assets/img/product/product-8.webp')}}" alt="Leather Crossbody"
-                                     class="img-fluid">
-                                <div class="product-badges">
-                                    <span class="badge-hot">Hot</span>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <h4 class="product-name">Leather Crossbody</h4>
-                                <div class="product-rating">
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <span>(112)</span>
-                                </div>
-                                <div class="product-price">
-                                    <span class="current-price">$95.50</span>
-                                </div>
-                            </div>
-                        </div>
                         @endforelse
                     </div>
                 </div>
@@ -219,92 +253,111 @@
                     </h3>
                     <div class="product-list">
                         @forelse($features->take(3) as $product)
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="{{asset($product->image)}}" alt="Pleated Midi Skirt"
-                                     class="img-fluid" style="border-radius: 10px">
-                            </div>
-                            <div class="product-info">
-                                <h4 class="product-name">{{$product->title}}</h4>
-                                <div class="product-rating">
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star"></i>
-                                    <span>(32)</span>
-                                </div>
-                                <div class="product-price">
-                                    <span class="current-price">Rs {{$product->original_price}}</span>
-                                </div>
-                            </div>
-                        </div>
-                            @empty
                             <div class="product-card">
-                            <div class="product-image">
-                                <img src="{{asset('frontend/assets/img/product/product-7.webp')}}" alt="Pleated Midi Skirt"
-                                     class="img-fluid">
+                                <a href="{{route('product.details',$product->id)}}" class="product-card">
+                                    <div class="product-image">
+                                        <img src="{{asset($product->image)}}" alt="Pleated Midi Skirt"
+                                             class="img-fluid" style="border-radius: 10px">
+                                    </div>
+                                    <div class="product-info">
+                                        <h4 class="product-name">{{$product->title}}</h4>
+                                        <div class="product-rating">
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star"></i>
+                                            <span>(32)</span>
+                                        </div>
+                                        <div class="product-price">
+                                            @if($product->sale_price == null)
+                                                <span class="current-price">Rs {{$product->original_price}}</span>
+                                            @else
+                                                <span class="current-price">Rs {{ $product->sale_price }}</span>
+                                                <span class="old-price">Rs {{ $product->original_price }}</span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
-                            <div class="product-info">
-                                <h4 class="product-name">Pleated Midi Skirt</h4>
-                                <div class="product-rating">
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star"></i>
-                                    <span>(32)</span>
-                                </div>
-                                <div class="product-price">
-                                    <span class="current-price">$75.00</span>
-                                </div>
-                            </div>
-                        </div>
+                        @empty
+                            <div class="product-card">
+                                <a href="{{route('product-details.static')}}" class="product-card">
 
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="{{asset('frontend/assets/img/product/product-4.webp')}}" alt="Geometric Earrings"
-                                     class="img-fluid">
-                                <div class="product-badges">
-                                    <span class="badge-limited">Limited</span>
-                                </div>
+                                    <div class="product-image">
+                                        <img src="{{asset('frontend/assets/img/product/product-7.webp')}}"
+                                             alt="Pleated Midi Skirt"
+                                             class="img-fluid">
+                                    </div>
+                                    <div class="product-info">
+                                        <h4 class="product-name">Pleated Midi Skirt</h4>
+                                        <div class="product-rating">
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star"></i>
+                                            <span>(32)</span>
+                                        </div>
+                                        <div class="product-price">
+                                            <span class="current-price">$75.00</span>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
-                            <div class="product-info">
-                                <h4 class="product-name">Geometric Earrings</h4>
-                                <div class="product-rating">
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-half"></i>
-                                    <span>(47)</span>
-                                </div>
-                                <div class="product-price">
-                                    <span class="current-price">$42.99</span>
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="{{asset('frontend/assets/img/product/product-9.webp')}}" alt="Structured Satchel"
-                                     class="img-fluid">
+                            <div class="product-card">
+                                <a href="{{route('product-details.static')}}" class="product-card">
+
+                                    <div class="product-image">
+                                        <img src="{{asset('frontend/assets/img/product/product-4.webp')}}"
+                                             alt="Geometric Earrings"
+                                             class="img-fluid">
+                                        <div class="product-badges">
+                                            <span class="badge-limited">Limited</span>
+                                        </div>
+                                    </div>
+                                    <div class="product-info">
+                                        <h4 class="product-name">Geometric Earrings</h4>
+                                        <div class="product-rating">
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-half"></i>
+                                            <span>(47)</span>
+                                        </div>
+                                        <div class="product-price">
+                                            <span class="current-price">$42.99</span>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
-                            <div class="product-info">
-                                <h4 class="product-name">Structured Satchel</h4>
-                                <div class="product-rating">
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <span>(64)</span>
-                                </div>
-                                <div class="product-price">
-                                    <span class="current-price">$89.99</span>
-                                </div>
+
+                            <div class="product-card">
+                                <a href="{{route('product-details.static')}}" class="product-card">
+
+                                    <div class="product-image">
+                                        <img src="{{asset('frontend/assets/img/product/product-9.webp')}}"
+                                             alt="Structured Satchel"
+                                             class="img-fluid">
+                                    </div>
+                                    <div class="product-info">
+                                        <h4 class="product-name">Structured Satchel</h4>
+                                        <div class="product-rating">
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <span>(64)</span>
+                                        </div>
+                                        <div class="product-price">
+                                            <span class="current-price">$89.99</span>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
-                        </div>
                         @endforelse
                     </div>
                 </div>

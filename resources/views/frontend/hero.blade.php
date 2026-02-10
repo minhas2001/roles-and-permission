@@ -64,8 +64,12 @@
                         <div class="product-info">
                             <h4>{{ $product->image_title ?? 'Featured Product' }}</h4>
                             <div class="price">
+                                @if($product->sale == null)
+                                    <span class="sale-price">Rs: {{ $product->original_price }}</span>
+                                @else
                                 <span class="sale-price">Rs: {{ $product->sale_price }}</span>
                                 <span class="original-price">Rs: {{$product->original_price}}</span>
+                                @endif
                             </div>
                         </div>
                     </div>

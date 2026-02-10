@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Backend;
 
-use App\Http\Requests\ProductRequest;
+use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\ProductType;
 use Illuminate\Http\Request;

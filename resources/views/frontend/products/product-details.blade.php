@@ -12,7 +12,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 40px;
-            margin-top: 20px;
+
         }
 
         .product-gallery {

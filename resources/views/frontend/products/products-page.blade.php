@@ -52,20 +52,17 @@
             transform: translateY(-6px);
             box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
         }
-
         .image-wrapper {
             position: relative;
-            height: 180px; /* Keeps cards compact */
+            height: 180px;  /* Keeps cards compact */
             overflow: hidden;
         }
-
         .image-wrapper img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
         }
-
         .badge {
             position: absolute;
             top: 10px;
@@ -78,7 +75,6 @@
             border-radius: 999px;
             backdrop-filter: blur(4px);
         }
-
         .heart {
             position: absolute;
             top: 10px;
@@ -88,17 +84,14 @@
             cursor: pointer;
             text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
         }
-
         .info {
             padding: 12px 14px;
             text-align: left;
         }
-
         .title {
             font-size: 0.9rem;
             font-weight: 600;
-            line-height: 1.3;
-            height: 2.6em;
+            height: 2rem;
             overflow: hidden;
             display: -webkit-box;
             -webkit-line-clamp: 2;
@@ -171,13 +164,18 @@
                     <div class="info">
                         <div class="title">{{$product->title}}</div>
                         <div class="price-row">
-                            <div class="price">Rs {{$product->sale_price}}</div>
-                            <div><span class="old-price">Rs {{$product->original_price}}</span></div>
+                            @if($product->sale_price == null)
+                            <div class="price">Rs {{$product->original_price}}</div>
+
+                            @else
+                                <div class="price">Rs {{$product->sale_price}}</div>
+                                <div><span class="old-price">Rs {{$product->original_price}}</span></div>
+                            @endif
                         </div>
                     </div>
                 </a>
             @empty
-                <a href="{{route('product.details')}}" class="product-card">
+                <a href="{{route('product-details.static')}}" class="product-card">
                     <div class="image-wrapper">
                         <img
                             src="https://images.unsplash.com/photo-1598532163257-ae3c6b2524b6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
@@ -193,7 +191,7 @@
                     </div>
                 </a>
 
-                <a href="{{route('product.details')}}" class="product-card">
+                <a href="{{route('product-details.static')}}" class="product-card">
                     <div class="image-wrapper">
                         <img
                             src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
@@ -209,7 +207,7 @@
                     </div>
                 </a>
 
-                <a href="{{route('product.details')}}" class="product-card">
+                <a href="{{route('product-details.static')}}" class="product-card">
                     <div class="image-wrapper">
                         <img
                             src="https://images.unsplash.com/photo-1598532163257-ae3c6b2524b6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
@@ -225,7 +223,7 @@
                     </div>
                 </a>
 
-                <a href="{{route('product.details')}}" class="product-card">
+                <a href="{{route('product-details.static')}}" class="product-card">
                     <div class="image-wrapper">
                         <img
                             src="https://images.unsplash.com/photo-1598532163257-ae3c6b2524b6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
@@ -241,7 +239,7 @@
                     </div>
                 </a>
 
-                <a href="{{route('product.details')}}" class="product-card">
+                <a href="{{route('product-details.static')}}" class="product-card">
                     <div class="image-wrapper">
                         <img
                             src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
@@ -256,7 +254,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="{{route('product.details')}}" class="product-card">
+                <a href="{{route('product-details.static')}}" class="product-card">
                     <div class="image-wrapper">
                         <img
                             src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
@@ -271,7 +269,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="{{route('product.details')}}" class="product-card">
+                <a href="{{route('product-details.static')}}" class="product-card">
                     <div class="image-wrapper">
                         <img
                             src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
@@ -285,7 +283,7 @@
                             <div class="price">$159.00</div>
                         </div>
                     </div>
-                </a>       <a href="{{route('product.details')}}" class="product-card">
+                </a>       <a href="{{route('product-details.static')}}" class="product-card">
                     <div class="image-wrapper">
                         <img
                             src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
@@ -299,7 +297,8 @@
                             <div class="price">$159.00</div>
                         </div>
                     </div>
-                    @endforelse
+                </a>
+                    @endforelse()
                     <!-- Add more cards by copying the block above -->
         </div>
     </div>

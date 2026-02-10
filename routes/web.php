@@ -1,6 +1,10 @@
 <?php
 
-use App\Http\Controllers\HeroController;
+use App\Http\Controllers\Backend\CollectionController;
+use App\Http\Controllers\Backend\HeroController;
+use App\Http\Controllers\Backend\ProductController;
+use App\Http\Controllers\Backend\ProductTypeController;
+use App\Http\Controllers\FrontendController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -10,16 +14,19 @@ Route::get('/dashboard', function () {
     return view('backend.dashboard.dashboard');
 })->name('dashboard');
 
-Route::get('/', [\App\Http\Controllers\FrontendController::class, 'index'])->name('website');
-Route::get('/product/{id}/details', [\App\Http\Controllers\FrontendController::class, 'getProductDetails'])
+Route::get('/', [FrontendController::class, 'index'])->name('website');
+Route::get('/product/{id}/details', [FrontendController::class, 'getProductDetails'])
     ->name('product.details');
-Route::get('/product/page', [\App\Http\Controllers\FrontendController::class, 'getProductPage'])->name('product.page');
+
+Route::get('/product/details/static', [FrontendController::class, 'getProductDetailsStatic'])
+    ->name('product-details.static');
+Route::get('/product/page', [FrontendController::class, 'getProductPage'])->name('product.page');
 
 Route::resources([
     'heroes' => HeroController::class,
-    'collections' => \App\Http\Controllers\CollectionController::class,
-    'products' => \App\Http\Controllers\ProductController::class,
-    'product-type' => \App\Http\Controllers\ProductTypeController::class,
+    'collections' => CollectionController::class,
+    'products' => ProductController::class,
+    'product-type' => ProductTypeController::class,
 ]);
 
 Auth::routes();

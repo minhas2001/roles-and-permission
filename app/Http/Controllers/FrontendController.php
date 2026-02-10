@@ -29,6 +29,12 @@ class FrontendController extends Controller
         $product = Product::find($id);
         return view('frontend.products.product-details', compact('product'));
     }
+
+    public function getProductDetailsStatic()
+    {
+
+        return view('frontend.products.product-details');
+    }
     public function getProductPage()
     {
         $products = Product::get();

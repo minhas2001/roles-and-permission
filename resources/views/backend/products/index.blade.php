@@ -52,8 +52,12 @@
                                              src="{{asset($product->image)}}" alt="image"
                                              width="40px" height="40px">
                                     </td>
+                                    @if($product->sale_price == null)
+                                        <td>{{$product->original_price}}</td>
+                                    @else
+                                        <td>{{$product->sale_price}}</td>
 
-                                    <td>{{$product->sale_price}}</td>
+                                    @endif
                                     <td>{{$product->productType->name}}</td>
 
                                     <td class="d-flex gap-2 p-2">

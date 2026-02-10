@@ -64,13 +64,21 @@
 
 
                             <div class="col-md-6 mb-3">
-                                {{ html()->label('Original Price', 'original_price')->class('form-label') }}
+                                {{ html()->label('Original Price (Rs)', 'original_price')->class('form-label') }}
+
                                 {{ html()->text('original_price')->class('form-control')->id('original_price') }}
                             </div>
 
                             <div class="col-md-6 mb-3">
-                                {{ html()->label('Sale Price', 'sale_price')->class('form-label') }}
-                                {{ html()->text('sale_price')->class('form-control')->id('sale_price') }}
+                                {{ html()->label('Sale Price (Rs)', 'sale_price')->class('form-label') }}
+                                <div class="input-group">
+                                    {{ html()->number('sale_price')
+                                        ->class('form-control')
+                                        ->id('sale_price')
+                                        ->placeholder('Leave empty if same as original price')
+                                      }}
+                                </div>
+
                             </div>
                             <div class="col-md-6 mb-3">
                                 {{ html()->label('Product type', 'product_type_id' )->class('form-label') }}

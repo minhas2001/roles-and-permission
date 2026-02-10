@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Backend;
 
+use App\Http\Controllers\Controller;
 use App\Models\Collection;
-use App\Models\Hero;
 use Illuminate\Http\Request;
 
 class CollectionController extends Controller
